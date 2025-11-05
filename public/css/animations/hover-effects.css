@@ -1,0 +1,77 @@
+/* Hover Effects */
+
+/* Scale on Hover */
+.hover-scale {
+    transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Lift on Hover */
+.hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Glow on Hover */
+.hover-glow {
+    transition: box-shadow var(--transition-base);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Underline on Hover */
+.hover-underline {
+    position: relative;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Fade on Hover */
+.hover-fade {
+    transition: opacity var(--transition-base);
+}
+
+.hover-fade:hover {
+    opacity: 0.7;
+}
+
+/* Background Shift on Hover */
+.hover-bg-shift {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-bg-shift::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+}
+
+.hover-bg-shift:hover::before {
+    transform: translateX(0);
+}
