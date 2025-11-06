@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - 頁面未找到 | 尊榮包車</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="min-h-screen flex items-center justify-center px-6 bg-background">
+    <div class="max-w-2xl mx-auto text-center space-y-8">
+      <!-- Large 404 Number -->
+      <div class="space-y-4">
+        <h1 class="text-9xl font-serif font-bold text-primary">404</h1>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-foreground">
+          頁面未找到
+        </h2>
+        <p class="text-xl text-muted-foreground">Page Not Found</p>
+      </div>
+
+      <!-- Description -->
+      <p class="text-base text-muted-foreground max-w-md mx-auto">
+        抱歉，您訪問的頁面不存在或已被移除。<br>
+        請返回首頁或聯繫我們尋求協助。
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+        <a href="/" class="btn btn-primary btn-lg min-w-[200px]">
+          返回首頁 / Go Home
+        </a>
+        <a href="/#booking" class="btn btn-outline btn-lg min-w-[200px]">
+          聯絡我們 / Contact Us
+        </a>
+      </div>
+
+      <!-- Decorative SVG -->
+      <div class="pt-12 opacity-20">
+        <svg class="w-64 h-64 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .text-9xl {
+      font-size: 8rem;
+      line-height: 1;
+    }
+    @media (min-width: 768px) {
+      .text-9xl {
+        font-size: 12rem;
+      }
+    }
+    .text-3xl {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+    @media (min-width: 768px) {
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+    }
+    .pt-12 {
+      padding-top: 3rem;
+    }
+    .opacity-20 {
+      opacity: 0.2;
+    }
+    .w-64 {
+      width: 16rem;
+    }
+    .h-64 {
+      height: 16rem;
+    }
+  </style>
+</body>
+</html>
