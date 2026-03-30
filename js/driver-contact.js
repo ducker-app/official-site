@@ -1,4 +1,5 @@
-const driverName = document.querySelector(".identity-name")?.textContent?.trim() || "";
+const driverNameNode = document.querySelector(".identity-name");
+const driverName = driverNameNode && driverNameNode.textContent ? driverNameNode.textContent.trim() : "";
 const linkButtons = document.querySelectorAll(".contact-link[data-contact]");
 const currentPagePath = window.location.pathname.replace(/[^/]+$/, "");
 const contactDialog = document.querySelector("[data-contact-dialog]");
@@ -7,77 +8,6 @@ const contactDialogTitle = document.getElementById("contact-dialog-title");
 const contactDialogCopy = document.querySelector("[data-contact-dialog-copy]");
 const contactDialogCopyLabel = document.querySelector("[data-contact-dialog-copy-label]");
 const contactDialogDownload = document.querySelector("[data-contact-dialog-download]");
-const digitsOnly = (value) => value.replace(/\D/g, "");
-const trimHandlePrefix = (value) => value.trim().replace(/^@/, "");
-const buildIntlValue = (value, countryCode = "") => {
-  const normalizedValue = value.trim();
-  const normalizedCountryCode = digitsOnly(countryCode);
-
-  if (normalizedValue.startsWith("+") || !normalizedCountryCode) {
-    return normalizedValue;
-  }
-
-  const localDigits = digitsOnly(normalizedValue).replace(/^0+/, "");
-  return `+${normalizedCountryCode}${localDigits}`;
-};
-
-const buildContactMeta = (type, value, countryCode = "") => {
-  const intlValue = buildIntlValue(value, countryCode);
-  const maps = {
-    phone: {
-      href: `tel:${intlValue}`,
-      linkAriaLabel: `撥打電話給${driverName}`,
-      action: "link"
-    },
-    line: {
-      href: `https://line.me/ti/p/${value.replace(/^@/, "")}`,
-      linkAriaLabel: `以 LINE 與${driverName}對話`,
-      action: "link"
-    },
-    whatsapp: {
-      href: `https://wa.me/${digitsOnly(intlValue)}`,
-      linkAriaLabel: `以 WhatsApp 與${driverName}聯絡`,
-      action: "link"
-    },
-    messenger: {
-      href: value.startsWith("http") ? value : `https://m.me/${value.replace(/^m\.me\//, "").replace(/^\//, "")}`,
-      linkAriaLabel: `以 Facebook Messenger 與${driverName}聯絡`,
-      action: "link"
-    },
-    wechat: {
-      href: "weixin://",
-      linkAriaLabel: "顯示 WeChat QR code",
-      action: "dialog"
-    },
-    kakaotalk: {
-      href: "kakaotalk://",
-      linkAriaLabel: "開啟 KakaoTalk",
-      action: "link"
-    },
-    email: {
-      href: `mailto:${value}`,
-      linkAriaLabel: `寄信給${driverName}`,
-      action: "link"
-    },
-    instagram: {
-      href: `https://ig.me/m/${trimHandlePrefix(value)}/`,
-      linkAriaLabel: `前往 ${driverName} 的 Instagram`,
-      action: "link"
-    },
-    snapchat: {
-      href: `https://www.snapchat.com/add/${trimHandlePrefix(value)}`,
-      linkAriaLabel: `前往 ${driverName} 的 Snapchat`,
-      action: "link"
-    }
-  };
-
-  return maps[type] || {
-    href: "#",
-    linkAriaLabel: "顯示聯絡方式提示",
-    action: "copy-only"
-  };
-};
-
 const buildDialogQrSrc = (type) => {
   if (type === "wechat") {
     return `${currentPagePath}wx.jpg`;
@@ -120,21 +50,6 @@ const closeContactDialog = () => {
   contactDialog.hidden = true;
   document.body.style.overflow = "";
 };
-
-linkButtons.forEach((button) => {
-  const contactKey = button.dataset.contact;
-  const contactValue = button.dataset.value || "";
-  const countryCode = button.dataset.countryCode || "";
-  const contact = buildContactMeta(contactKey, contactValue, countryCode);
-
-  if (!contact) {
-    return;
-  }
-
-  button.href = contact.href;
-  button.dataset.action = contact.action;
-  button.setAttribute("aria-label", contact.linkAriaLabel);
-});
 
 linkButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
