@@ -3,44 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>即將推出 | 尊榮包車</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #fff;
-    }
-    .container { text-align: center; padding: 2rem; }
-    h1 { 
-      font-size: 3rem; 
-      font-weight: 700; 
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #c9a227 0%, #f4d03f 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p { font-size: 1.25rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
-    .coming-soon {
-      display: inline-block;
-      padding: 1rem 3rem;
-      background: linear-gradient(135deg, #c9a227 0%, #f4d03f 100%);
-      color: #1a1a2e;
-      font-weight: 600;
-      border-radius: 50px;
-      font-size: 1.1rem;
-    }
-  </style>
+  <meta name="description" content="ducker 駕駛員林小黑數位名片，提供多種聯絡方式快速聯繫。">
+  <meta name="robots" content="index,follow">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ducker - 貴賓專送｜商務差旅｜旅途包車">
+  <meta property="og:url" content="https://www.ducker.com.tw/d/0913300895/">
+  <meta property="og:title" content="駕駛員 林小黑">
+  <meta property="og:description" content="貴賓專送｜商務差旅｜旅途包車">
+  <meta property="og:image" content="https://ducker-go.com/public/assets/images/og_image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ducker 駕駛員林小黑聯絡名片">
+  <title>林小黑 - 貴賓專送｜商務差旅｜旅途包車</title>
+  <link rel="stylesheet" href="/css/driver-contact.css">
 </head>
 <body>
-  <div class="container">
-    <h1>敬請期待</h1>
-    <p>我們即將推出嶄新的服務體驗</p>
-    <span class="coming-soon">Coming Soon</span>
+  <main class="u-shell u-center u-stack-lg">
+    <header class="brand-header">
+      <a class="brand-link" href="/" aria-label="返回首頁">
+        <span class="brand-logo" aria-hidden="true">
+          <img src="/public/assets/images/dk_icon_white_transparent.png" alt="">
+        </span>
+        <span class="brand-copy">貴賓專送｜商務差旅｜旅途包車</span>
+      </a>
+    </header>
+
+    <section aria-labelledby="driver-name">
+      <p class="identity-role">駕駛員</p>
+      <h1 class="identity-name" id="driver-name">林小黑</h1>
+    </section>
+
+    <section aria-label="聯絡方式" class="contact-section">
+      <div class="u-grid u-grid-primary">
+        <a class="contact-link" href="#" data-contact="phone" data-country-code="886" data-value="0913300895">
+          <span class="contact-label">電話</span>
+        </a>
+
+        <a class="contact-link" href="#" data-contact="line" data-value="ATnnkw7Ndj">
+          <span class="contact-label">LINE</span>
+        </a>
+
+        <a class="contact-link" href="#" data-contact="wechat" data-value="沒有 ID">
+          <span class="contact-label">WeChat</span>
+        </a>
+
+      </div>
+    </section>
+
+    <a class="brand-footer" href="/" aria-label="返回首頁">© 2026 達克行動股份有限公司籌備處 All Rights Reserved.</a>
+  </main>
+  <div class="contact-dialog" data-contact-dialog hidden>
+    <button class="contact-dialog__backdrop" type="button" aria-label="關閉 QR code"></button>
+    <section class="contact-dialog__panel" aria-labelledby="contact-dialog-title" aria-modal="true" role="dialog">
+      <button class="contact-dialog__close" type="button" aria-label="關閉">×</button>
+      <h2 class="u-sr-only" id="contact-dialog-title">WeChat QR code</h2>
+      <div class="contact-dialog__qr-frame">
+        <img class="contact-dialog__qr-image" data-contact-dialog-image src="" alt="">
+      </div>
+      <div class="contact-dialog__actions">
+        <button class="contact-dialog__action contact-dialog__action--copy" data-contact-dialog-copy type="button">
+          <span data-contact-dialog-copy-label></span>
+          <svg class="contact-dialog__copy-icon" aria-hidden="true">
+            <use href="/public/assets/icons/contact-sprite.svg#icon-copy"></use>
+          </svg>
+          <span class="contact-dialog__action-tip" data-contact-dialog-copy-tip>已複製</span>
+        </button>
+        <a class="contact-dialog__action is-link" data-contact-dialog-download href="" download>下載圖片</a>
+      </div>
+    </section>
   </div>
+  <script src="/js/driver-contact.js"></script>
 </body>
 </html>

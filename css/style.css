@@ -437,87 +437,74 @@ button {
    Fleet
    ============================================================================ */
 
-.fleet-grid {
+.fleet-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
-  .fleet-grid {
+  .fleet-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .fleet-grid {
+  .fleet-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.vehicle-card {
+.fleet-item {
   overflow: hidden;
   padding: 0;
   transition: all 0.3s;
 }
 
-.vehicle-card:hover {
+.fleet-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
-.vehicle-image {
+.fleet-item__image {
   position: relative;
   aspect-ratio: 4/3;
   overflow: hidden;
   background: hsl(var(--muted-foreground) / 0.1);
 }
 
-.vehicle-image img {
+.fleet-item__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
 }
 
-.vehicle-card:hover .vehicle-image img {
+.fleet-item:hover .fleet-item__image img {
   transform: scale(1.05);
 }
 
-.vehicle-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.vehicle-card:hover .vehicle-overlay {
-  opacity: 1;
-}
-
-.vehicle-info {
+.fleet-item__content {
   padding: 1.5rem;
 }
 
-.vehicle-name {
+.fleet-item__title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.vehicle-name-en {
+.fleet-item__subtitle {
   font-size: 0.875rem;
   color: hsl(var(--muted-foreground));
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 
-.vehicle-capacity {
+.fleet-item__meta {
   display: flex;
   align-items: center;
   gap: 0.5rem;
