@@ -861,6 +861,40 @@ button {
   color: hsl(var(--foreground));
 }
 
+.driver-return-fab {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 12px 24px hsl(var(--primary) / 0.28);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.driver-return-fab:hover,
+.driver-return-fab:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px hsl(var(--primary) / 0.34);
+  outline: none;
+}
+
+.driver-return-fab__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.driver-return-fab.hidden {
+  display: none;
+}
+
 .footer-contact {
   font-size: 0.875rem;
   color: hsl(var(--muted-foreground));

@@ -479,6 +479,27 @@ function setMinDate() {
   }
 }
 
+/**
+ * Show floating return button when homepage includes driver query param
+ */
+function initDriverReturnFab() {
+  const fab = document.getElementById('driver-return-fab');
+  if (!fab) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const driverId = params.get('d');
+
+  if (!driverId) {
+    fab.classList.add('hidden');
+    return;
+  }
+
+  fab.href = `/d/${encodeURIComponent(driverId)}/`;
+  fab.classList.remove('hidden');
+}
+
 // =============================================================================
 // Initialization
 // =============================================================================
@@ -492,6 +513,7 @@ function init() {
   initMobileMenu();
   initCustomSelects();
   initBookingForm();
+  initDriverReturnFab();
 
   // Set dynamic content
   setCurrentYear();
